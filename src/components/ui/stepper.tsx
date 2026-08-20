@@ -29,16 +29,16 @@ export function Stepper({
                 onClick={reachable ? () => onSelect?.(step.index) : undefined}
                 aria-current={isCurrent ? 'step' : undefined}
                 className={cn(
-                  'flex items-center gap-2 rounded-full px-3 py-1.5 text-small transition-colors',
-                  isCurrent && 'bg-primary text-base-light',
+                  'flex items-center gap-2 rounded-full px-3 py-1.5 text-sm transition-colors',
+                  isCurrent && 'bg-primary text-ivory',
                   isDone && 'text-primary hover:bg-secondary/60',
                   !isCurrent && !isDone && 'text-text-muted',
                 )}
               >
                 <span
                   className={cn(
-                    'flex size-6 shrink-0 items-center justify-center rounded-full text-small tabular-nums',
-                    isCurrent ? 'bg-base-light/25 text-base-light' : 'bg-secondary text-text-primary',
+                    'flex size-6 shrink-0 items-center justify-center rounded-full text-sm tabular-nums',
+                    isCurrent ? 'bg-ivory/25 text-ivory' : 'bg-secondary text-text-primary',
                   )}
                   aria-hidden="true"
                 >

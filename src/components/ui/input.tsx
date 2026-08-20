@@ -18,11 +18,11 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
     return (
       <div className="flex flex-col gap-1.5">
         <div className="flex items-baseline justify-between gap-3">
-          <label htmlFor={inputId} className="text-small font-medium text-text-primary">
+          <label htmlFor={inputId} className="text-sm font-medium text-text-primary">
             {label}
           </label>
           {counter ? (
-            <span className="text-small tabular-nums text-text-muted" aria-hidden="true">
+            <span className="text-sm tabular-nums text-text-muted" aria-hidden="true">
               {counter.current}/{counter.max}
             </span>
           ) : null}
@@ -40,12 +40,12 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
           {...props}
         />
         {hint && !error ? (
-          <p id={hintId} className="text-small text-text-muted">
+          <p id={hintId} className="text-sm text-text-muted">
             {hint}
           </p>
         ) : null}
         {error ? (
-          <p id={errorId} role="alert" className="text-small text-danger">
+          <p id={errorId} role="alert" className="text-sm text-danger">
             {error}
           </p>
         ) : null}

@@ -7,14 +7,14 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        primary: 'bg-primary text-base-light hover:bg-primary-hover',
+        primary: 'bg-primary text-ivory hover:bg-primary-hover',
         secondary: 'bg-secondary text-text-primary hover:bg-accent',
         outline: 'border border-border bg-transparent text-text-primary hover:bg-secondary/60',
         ghost: 'bg-transparent text-text-primary hover:bg-secondary/50',
-        night: 'bg-night text-base-light hover:bg-night/90',
+        night: 'bg-night text-ivory hover:bg-night/90',
       },
       size: {
-        sm: 'h-10 px-4 text-small',
+        sm: 'h-10 px-4 text-sm',
         md: 'h-12 px-6',
         lg: 'h-14 px-8 text-[1.0625rem]',
       },

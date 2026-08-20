@@ -19,6 +19,23 @@ test.describe('socle', () => {
     await expect(page.getByRole('link', { name: 'Aller au contenu principal' })).toBeFocused();
   });
 
+  test('les boutons gardent leur couleur de texte quelle que soit la taille', async ({ page }) => {
+    await page.goto('/design-system');
+
+    // Régression : un token ambigu faisait écraser la couleur du texte par la
+    // taille de police, donnant du terracotta sur terracotta.
+    for (const name of ['Principal', 'Petit', 'Grand']) {
+      const button = page.getByRole('button', { name, exact: true });
+      const { color, background } = await button.evaluate((node) => {
+        const style = getComputedStyle(node);
+        return { color: style.color, background: style.backgroundColor };
+      });
+
+      expect(color).toBe('rgb(253, 252, 248)');
+      expect(background).toBe('rgb(184, 80, 66)');
+    }
+  });
+
   test('le design system expose la palette et les composants', async ({ page }) => {
     await page.goto('/design-system');
 

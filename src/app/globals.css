@@ -12,7 +12,7 @@
   --color-secondary: #e7e8d1;      /* sable doux */
   --color-accent: #a7beae;         /* sage apaisant */
   --color-night: #3e2e28;          /* brun nuit, registre solennel */
-  --color-base-light: #fdfcf8;     /* ivoire doux, fond principal */
+  --color-ivory: #fdfcf8;          /* ivoire doux, fond principal */
   --color-surface: #ffffff;
   --color-text-primary: #1f1b18;
   --color-text-muted: #6b5f58;
@@ -24,16 +24,15 @@
   --font-serif: var(--font-fraunces), ui-serif, Georgia, serif;
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
 
-  --text-h1: clamp(2.5rem, 5vw, 3.5rem);      /* 40 → 56 px */
-  --text-h1--line-height: 1.1;
-  --text-h2: clamp(2rem, 3.5vw, 2.5rem);      /* 32 → 40 px */
-  --text-h2--line-height: 1.15;
-  --text-h3: clamp(1.5rem, 2.5vw, 1.75rem);   /* 24 → 28 px */
-  --text-h3--line-height: 1.25;
-  --text-body: 1.0625rem;                     /* 17 px */
-  --text-body--line-height: 1.65;
-  --text-small: 0.875rem;                     /* 14 px */
-  --text-small--line-height: 1.55;
+  /* Échelle de titres exposée en utilités type-* et non text-* : tailwind-merge
+     range toute classe text-<valeur inconnue> avec les couleurs et écraserait
+     silencieusement la couleur du texte. */
+  --type-h1: clamp(2.5rem, 5vw, 3.5rem);      /* 40 → 56 px */
+  --type-h2: clamp(2rem, 3.5vw, 2.5rem);      /* 32 → 40 px */
+  --type-h3: clamp(1.5rem, 2.5vw, 1.75rem);   /* 24 → 28 px */
+  --body-size: 1.0625rem;                     /* 17 px */
+  --body-line-height: 1.65;
+  --text-sm--line-height: 1.55;               /* mentions secondaires, 14 px */
 
   /* Formes arrondies — jamais d'angle vif */
   --radius-sm: 0.75rem;   /* 12 px */
@@ -53,11 +52,11 @@
   }
 
   body {
-    background-color: var(--color-base-light);
+    background-color: var(--color-ivory);
     color: var(--color-text-primary);
     font-family: var(--font-sans);
-    font-size: var(--text-body);
-    line-height: var(--text-body--line-height);
+    font-size: var(--body-size);
+    line-height: var(--body-line-height);
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
   }
@@ -92,6 +91,21 @@
       scroll-behavior: auto !important;
     }
   }
+}
+
+@utility type-h1 {
+  font-size: var(--type-h1);
+  line-height: 1.1;
+}
+
+@utility type-h2 {
+  font-size: var(--type-h2);
+  line-height: 1.15;
+}
+
+@utility type-h3 {
+  font-size: var(--type-h3);
+  line-height: 1.25;
 }
 
 @utility container-page {

@@ -6,9 +6,9 @@ type SectionProps = React.HTMLAttributes<HTMLElement> & {
 };
 
 const tones = {
-  light: 'bg-base-light',
+  light: 'bg-ivory',
   sand: 'bg-secondary/45',
-  night: 'bg-night text-base-light',
+  night: 'bg-night text-ivory',
 } as const;
 
 export function Section({ className, tone = 'light', children, ...props }: SectionProps) {
@@ -33,9 +33,9 @@ export function SectionHeading({
   return (
     <div className={cn('max-w-2xl', className)}>
       {eyebrow ? (
-        <p className="mb-3 text-small font-medium uppercase tracking-[0.12em] text-primary">{eyebrow}</p>
+        <p className="mb-3 text-sm font-medium uppercase tracking-[0.12em] text-primary">{eyebrow}</p>
       ) : null}
-      <h2 className="text-h2">{title}</h2>
+      <h2 className="type-h2">{title}</h2>
       {lead ? <p className="mt-4 text-text-muted">{lead}</p> : null}
     </div>
   );

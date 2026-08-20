@@ -10,7 +10,7 @@ export default function HomePage() {
       <section className="bg-secondary/40 py-20 md:py-28">
         <div className="container-page grid gap-10 md:grid-cols-2 md:items-center">
           <div>
-            <h1 className="text-h1">Garder leur souvenir tout près de vous</h1>
+            <h1 className="type-h1">Garder leur souvenir tout près de vous</h1>
             <p className="mt-6 max-w-prose text-text-muted">
               Des coffrets mémoriels façonnés à la main dans l&apos;Ouest de la France, pensés pour célébrer le
               passage de ceux qui nous ont quittés.
@@ -26,7 +26,7 @@ export default function HomePage() {
               </Link>
             </div>
           </div>
-          <div className="aspect-4/3 rounded-xl border border-border bg-base-light shadow-soft" aria-hidden="true" />
+          <div className="aspect-4/3 rounded-xl border border-border bg-ivory shadow-soft" aria-hidden="true" />
         </div>
       </section>
 

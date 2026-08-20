@@ -15,7 +15,7 @@ export function CardBody({ className, ...props }: React.HTMLAttributes<HTMLDivEl
 }
 
 export function CardTitle({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) {
-  return <h3 className={cn('font-serif text-h3', className)} {...props} />;
+  return <h3 className={cn('font-serif type-h3', className)} {...props} />;
 }
 
 export function CardText({ className, ...props }: React.HTMLAttributes<HTMLParagraphElement>) {

@@ -1,0 +1,60 @@
+import type { Metadata, Viewport } from 'next';
+import { Fraunces, Inter } from 'next/font/google';
+import { SiteFooter } from '@/components/layout/site-footer';
+import { SiteHeader } from '@/components/layout/site-header';
+import { siteConfig } from '@/config/site';
+import './globals.css';
+
+const fraunces = Fraunces({
+  subsets: ['latin'],
+  variable: '--font-fraunces',
+  display: 'swap',
+  axes: ['SOFT', 'WONK', 'opsz'],
+});
+
+const inter = Inter({
+  subsets: ['latin'],
+  variable: '--font-inter',
+  display: 'swap',
+});
+
+export const metadata: Metadata = {
+  metadataBase: new URL(siteConfig.url),
+  title: {
+    default: `${siteConfig.name} — ${siteConfig.tagline}`,
+    template: `%s · ${siteConfig.name}`,
+  },
+  description: siteConfig.description,
+  openGraph: {
+    type: 'website',
+    locale: siteConfig.locale,
+    siteName: siteConfig.name,
+    title: `${siteConfig.name} — ${siteConfig.tagline}`,
+    description: siteConfig.description,
+  },
+  robots: { index: true, follow: true },
+};
+
+export const viewport: Viewport = {
+  themeColor: '#fdfcf8',
+  width: 'device-width',
+  initialScale: 1,
+};
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <html lang="fr" className={`${fraunces.variable} ${inter.variable}`}>
+      <body className="flex min-h-dvh flex-col bg-ivory text-text-primary">
+        <a
+          href="#contenu"
+          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-primary focus:px-4 focus:py-2 focus:text-ivory"
+        >
+          Aller au contenu principal
+        </a>
+        <SiteHeader />
+        <div className="flex-1">{children}</div>
+        <SiteFooter />
+      </body>
+    </html>
+  );
+}

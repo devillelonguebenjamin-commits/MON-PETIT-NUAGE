@@ -28,6 +28,10 @@ export function Stepper({
                 disabled={!reachable}
                 onClick={reachable ? () => onSelect?.(step.index) : undefined}
                 aria-current={isCurrent ? 'step' : undefined}
+                // Le libellé est masqué sous le point de rupture sm et le
+                // numéro est décoratif : sans ce nom, le bouton est muet pour
+                // un lecteur d'écran sur mobile.
+                aria-label={`Étape ${step.index} sur ${steps.length} : ${step.label}`}
                 className={cn(
                   'flex items-center gap-2 rounded-full px-3 py-1.5 text-sm transition-colors',
                   isCurrent && 'bg-primary text-ivory',

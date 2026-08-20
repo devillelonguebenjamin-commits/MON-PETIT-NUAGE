@@ -14,7 +14,8 @@ export const metadata: Metadata = {
 };
 
 const swatches = [
-  { name: 'primary', hex: '#B85042', usage: 'Actions principales, accents éditoriaux' },
+  { name: 'primary', hex: '#B85042', usage: 'Aplats et actions principales' },
+  { name: 'primary-ink', hex: '#A1453A', usage: 'Texte terracotta sur fond clair (WCAG AA)' },
   { name: 'secondary', hex: '#E7E8D1', usage: 'Fonds de section, surfaces calmes' },
   { name: 'accent', hex: '#A7BEAE', usage: 'Survols, états secondaires' },
   { name: 'night', hex: '#3E2E28', usage: 'Registre solennel, packaging' },

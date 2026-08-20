@@ -9,6 +9,9 @@
   /* Palette */
   --color-primary: #b85042;        /* terracotta chaleureux */
   --color-primary-hover: #a1453a;
+  /* Terracotta pour le texte sur fond clair : #b85042 plafonne à 4,4:1 sur le
+     sable, sous le seuil WCAG AA de 4,5:1 pour le petit texte. */
+  --color-primary-ink: #a1453a;
   --color-secondary: #e7e8d1;      /* sable doux */
   --color-accent: #a7beae;         /* sage apaisant */
   --color-night: #3e2e28;          /* brun nuit, registre solennel */

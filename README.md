@@ -93,7 +93,17 @@ docs/                  Note de cadrage
 ## Design system
 
 Les tokens sont définis une seule fois, dans le bloc `@theme` de `src/app/globals.css`.
-Aucune couleur ne doit être écrite en dur dans un composant. La page `/design-system` sert de
+Aucune couleur ne doit être écrite en dur dans un composant.
+
+Deux règles de nommage, apprises à nos dépens :
+
+- **Ne jamais nommer un token de couleur avec un préfixe de taille de police.**
+  `text-base-light` était interprété par `tailwind-merge` comme `text-base` et se faisait
+  écraser silencieusement. Les couleurs portent des noms qui ne peuvent pas être confondus.
+- **L'échelle de titres vit en `type-h1/h2/h3`, pas en `text-*`**, pour la même raison.
+
+Pour le texte terracotta sur fond clair, utiliser `text-primary-ink` et non `text-primary` :
+`#B85042` plafonne à 4,4:1 sur le sable, sous le seuil WCAG AA. La page `/design-system` sert de
 référence visuelle en remplacement de Storybook au MVP (arbitrage 3 de la note de cadrage).
 
 Points non négociables repris du brief : formes arrondies, whitespace généreux, vouvoiement,
@@ -105,5 +115,9 @@ aucune imagerie funéraire.
 La CI ([`.github/workflows/ci.yml`](.github/workflows/ci.yml)) exécute lint, typecheck, tests
 unitaires, build et parcours Playwright sur chaque pull request.
 
-Budgets à tenir, vérifiés manuellement en fin de semaine 3 : Lighthouse mobile 90+ sur `/`,
-`/coffrets` et `/personnaliser`, WCAG AA sur l'ensemble du parcours d'achat.
+L'accessibilité est vérifiée automatiquement : `tests/e2e/accessibilite.spec.ts` passe axe-core sur
+l'accueil, le catalogue, une fiche produit et deux étapes du configurateur, en desktop et en mobile.
+Toute violation WCAG critique ou sérieuse fait échouer la CI.
+
+Budget restant à vérifier manuellement en fin de semaine 3 : Lighthouse mobile 90+ sur `/`,
+`/coffrets` et `/personnaliser`.
